@@ -66,7 +66,9 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/04/Journal-club-20190904/qcnn_architecture.PNG">
 <meta property="og:image" content="http://yoursite.com/2019/09/04/Journal-club-20190904/application_1.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/04/Journal-club-20190904/application_1_output.png">
-<meta property="og:updated_time" content="2019-09-06T04:04:48.317Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/04/Journal-club-20190904/application_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/04/Journal-club-20190904/application_2_output.png">
+<meta property="og:updated_time" content="2019-09-15T00:26:11.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Journal Club: Quantum convolutional neural networks">
 <meta name="twitter:description" content="This paper is published on August 26th, 2019 on Nature Physics by Professor Lukin’s Group at Harvard University. The first author is Iris Cong, a third-year graduate student. Here are a talk slides an">
@@ -265,7 +267,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-06 00:04:48 00:04:48" itemprop="dateModified" datetime="2019-09-06T00:04:48-04:00">2019-09-06 00:04:48</time>
+                <time title="Modified: 2019-09-14 20:26:11 20:26:11" itemprop="dateModified" datetime="2019-09-14T20:26:11-04:00">2019-09-14 20:26:11</time>
               </span>
             
           
@@ -287,7 +289,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>3.5k</span>
+              <span>4k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -297,7 +299,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span>3 mins.</span>
+              <span>4 mins.</span>
             </span>
           
 
@@ -316,8 +318,17 @@
 <h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><h3 id="1-Quantum-phase-recognition"><a href="#1-Quantum-phase-recognition" class="headerlink" title="1. Quantum phase recognition"></a>1. Quantum phase recognition</h3><p>The system investigate in the paper is a $Z_2 \times Z_2$ symmetry-protected topological (SPT) phase $\cal {P}$ described by<br>$$H = -J\sum_{i=1}^{N-2}Z_iX_{i+1}Z_{i+2} - h_1\sum_{i=1}^NX_i - h_2\sum_{i=1}^{N-1}X_iX_{i+1}$$<br>Below Fig. a is the phase diagram and Fig. b is the analytical QCNN circuit that they use to recognize $\cal{P}$<br><img src="./application_1.png" alt><br>The training data points are 40 equally spaced points $h_1 \in [0,2]$ along the line $h_2=-0$. The blue and red diamonds are phase boundary points extracted from infinite-size DMRG numerical simulations, while the background shading represents the expectation value of QCNN output. In the QCNN learning procedure, the derivative of the MSE to the first order is calculated with respect to the parameters using the finite-difference method.(See paper method part for detail)</p>
 <p>The output is shown below. It shows that the QCNN can accurately reproduce the two-dimensional phase diagram over the entire parameter regime, while only trained on samples from a set of solvable points that do not even cross the lower phase boundary.</p>
 <p><em>I have one question here: does this mean that the QCNN have learned how to solve the hamiltonian for the whole space? As it can show the phase transition that it is not trained upon.</em><br><img src="./application_1_output.png" alt></p>
-<h3 id="2-Quantum-error-correction-QEC-optimization"><a href="#2-Quantum-error-correction-QEC-optimization" class="headerlink" title="2. Quantum error correction (QEC) optimization"></a>2. Quantum error correction (QEC) optimization</h3><h2 id="Outlook"><a href="#Outlook" class="headerlink" title="Outlook"></a>Outlook</h2><p>This paper indicates that QCNNs are promising for its application in qunatum machine learning field. Further extensions could incorporate optimizations for fault-tolerant operations on QEC code spaces. </p>
-<p>As I am not familar with quantum computer part, I still quite confuse how they develop their systems. Also the optimization method in the QCNN is not backpropagation we generally use in classical CNN. </p>
+<h3 id="2-Quantum-error-correction-QEC-optimization"><a href="#2-Quantum-error-correction-QEC-optimization" class="headerlink" title="2. Quantum error correction (QEC) optimization"></a>2. Quantum error correction (QEC) optimization</h3><p>Any QCNN circuit can be viewed as a decoding (encoding) quantum channel between the physical input qubits and the logical output qubit. The encoding scheme introduces sets of new qubits in a predetermined state while the decoding scheme performs measurements. </p>
+<table>
+    <tr>
+        <td><center><img src="./application_2.png"></center></td>
+        <td><center><img src="./application_2_output.png"></center></td>
+    </tr>
+</table>
+The output is shown above. The performance of the Shor code(blue) is worse than performing no error correction at all(grey line), while the optimized code(orange) can substantially reduce the error rate.
+
+<h2 id="Outlook"><a href="#Outlook" class="headerlink" title="Outlook"></a>Outlook</h2><p>This paper indicates that QCNNs are promising for its application in qunatum machine learning field. Further extensions could incorporate optimizations for fault-tolerant operations on QEC code spaces. </p>
+<p>As I am not familar with quantum computer part, I still quite confuse how they develop their systems. They have included a section of experimental realization in the paper. Also the optimization method in the QCNN is not backpropagation we generally use in classical CNN. </p>
 
     </div>
 
@@ -352,6 +363,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/11/unsupervised-word-embeddings-materials-science/" rel="prev" title="Journal Club: Unsupervised word embeddings capture latent knowledge from materials science literature">
+                  Journal Club: Unsupervised word embeddings capture latent knowledge from materials science literature <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -425,7 +440,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -438,7 +453,13 @@
         
           
         
-        <span class="site-state-item-count">1</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
         
       </div>
@@ -513,12 +534,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">11k</span>
+    <span title="Symbols count total">17k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">10 mins.</span>
+    <span title="Reading time total">16 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>

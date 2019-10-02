@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-15T02:28:44.444Z</updated>
+  <updated>2019-10-02T21:17:14.668Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wsl</title>
+    <link href="http://yoursite.com/2019/09/20/wsl/"/>
+    <id>http://yoursite.com/2019/09/20/wsl/</id>
+    <published>2019-09-20T04:51:59.000Z</published>
+    <updated>2019-10-02T21:17:14.668Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Conflicting-Distribution"><a href="#Conflicting-Distribution" class="headerlink" title="Conflicting Distribution"></a><a href="https://stackoverflow.com/questions/43857550/how-to-resolve-conflicting-distributions-in-apt-get" target="_blank" rel="noopener">Conflicting Distribution</a></h3><p>When update packages on WSL, I see the error </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">W: Conflicting distribution: https://downloads.plex.tv/repo/deb public InRelease (expected public but got )</span><br></pre></td></tr></table></figure><a id="more"></a><p>The error can be solved with following code.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> deb https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list</span><br><span class="line"></span><br><span class="line">curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y</span><br></pre></td></tr></table></figure><h3 id="Interesting-Bash-Scripts"><a href="#Interesting-Bash-Scripts" class="headerlink" title="Interesting Bash Scripts"></a><a href="https://github.com/alexanderepstein/Bash-Snippets" target="_blank" rel="noopener">Interesting Bash Scripts</a></h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Conflicting-Distribution&quot;&gt;&lt;a href=&quot;#Conflicting-Distribution&quot; class=&quot;headerlink&quot; title=&quot;Conflicting Distribution&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://stackoverflow.com/questions/43857550/how-to-resolve-conflicting-distributions-in-apt-get&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Conflicting Distribution&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;When update packages on WSL, I see the error &lt;/p&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;W: Conflicting distribution: https://downloads.plex.tv/repo/deb public InRelease (expected public but got )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Journal Club: Unsupervised word embeddings capture latent knowledge from materials science literature</title>

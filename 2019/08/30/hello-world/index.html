@@ -177,6 +177,17 @@
       
       
         
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-cv">
       
     
@@ -264,6 +275,20 @@
               <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/08/30/hello-world/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/08/30/hello-world/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
           <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
@@ -424,11 +449,7 @@
           </div>
           
     
-    
-  <div class="comments" id="comments">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC80MTE2NS8xNzcxMw=="></div>
-  </div>
-  
+    <div class="comments" id="comments"></div>
   
 
         </div>
@@ -664,18 +685,29 @@
 
   
 
+
 <script>
-  window.livereOptions = {
-    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
-  };
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-    if (typeof LivereTower === 'function') { return; }
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'TLB1pB04L5e2wizvigHoEIvo-MdYXbMMI',
+    appKey: 'MyG9TObX8cHrCPWS5TcEt7bL',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
 </script>
 
 </body>

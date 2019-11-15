@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="C &amp; S">
 <meta property="og:description" content="BackgroundGoogle Colaboratory provides free access to K80 GPU through a Jupyter notebook environment. After continuous 12 hours, the VM will be reset and all data will cleaned. This can be solved by m">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-17T04:50:27.390Z">
+<meta property="og:updated_time" content="2019-10-17T05:07:16.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Connect Google Colab Through SSH">
 <meta name="twitter:description" content="BackgroundGoogle Colaboratory provides free access to K80 GPU through a Jupyter notebook environment. After continuous 12 hours, the VM will be reset and all data will cleaned. This can be solved by m">
@@ -180,11 +180,11 @@
       
       
         
-        <li class="menu-item menu-item-resume">
+        <li class="menu-item menu-item-about">
       
     
 
-    <a href="/cancan233.github.io/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Resume</a>
+    <a href="/cancan233.github.io/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
 
   </li>
       
@@ -265,7 +265,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-17 00:50:27 00:50:27" itemprop="dateModified" datetime="2019-10-17T00:50:27-04:00">2019-10-17 00:50:27</time>
+                <time title="Modified: 2019-10-17 01:07:16 01:07:16" itemprop="dateModified" datetime="2019-10-17T01:07:16-04:00">2019-10-17 01:07:16</time>
               </span>
             
           
@@ -333,11 +333,12 @@
 <h2 id="Step-2-Start-Google-Colab"><a href="#Step-2-Start-Google-Colab" class="headerlink" title="Step 2: Start Google Colab"></a>Step 2: Start Google Colab</h2><p>I have upload a <a href="https://github.com/cancan233/googlecolab/blob/master/SSH_Google_Colab.ipynb" target="_blank" rel="noopener">template notebook</a> on my Github, which you can open directly using your google account. </p>
 <p>The script provided in the post I mentioned before doesn’t include the password generation part.</p>
 <p>Note: Check <a href="https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb#scrollTo=K-NVg7RjyeTk" target="_blank" rel="noopener">here</a> for using Google Colab with Github. </p>
-<p>Simply speaking, you need to change the url address of the github <code>https://github.com/&lt;path-to-notebook&gt;</code> to <code>https://colab.research.google.com/github/&lt;path-to-notebook&gt;</code>. You can also use the Chrome extension <a href="https://chrome.google.com/webstore/detail/open-in-colab/iogfkhleblhcpcekbiedikdehleodpjo" target="_blank" rel="noopener">Open in Colab</a> to generate sun links in one click. </p>
+<p>Simply speaking, you need to change the url address of the github<br><code>https://github.com/&lt;path-to-notebook&gt;</code><br>to<br><code>https://colab.research.google.com/github/&lt;path-to-notebook&gt;</code><br>You can also use the Chrome extension <a href="https://chrome.google.com/webstore/detail/open-in-colab/iogfkhleblhcpcekbiedikdehleodpjo" target="_blank" rel="noopener">Open in Colab</a> to generate sun links in one click. </p>
 <h2 id="Step-3-Run-the-notebook-you-open"><a href="#Step-3-Run-the-notebook-you-open" class="headerlink" title="Step 3: Run the notebook you open"></a>Step 3: Run the notebook you open</h2><p>If you follow step 2 and open the template I provide, you can directly run each cell. Follow the authentication procedure and you will see the root password and the ngrok url print at last. If not, you can also check <a href="https://dashboard.ngrok.com/status" target="_blank" rel="noopener">status</a> to see the port number.</p>
 <h2 id="Step-4-SSH-to-Google-Colab"><a href="#Step-4-SSH-to-Google-Colab" class="headerlink" title="Step 4: SSH to Google Colab"></a>Step 4: SSH to Google Colab</h2><p>Open your local terminal and enter command</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># port-number is the number you see in ngrok URL</span></span><br><span class="line"><span class="comment"># For example, URL: tcp://0.tcp.ngrok.io:16568, the port number is 16568</span></span><br><span class="line">ssh root@0.tcp.ngrok.io -p &lt;port-number&gt;</span><br></pre></td></tr></table></figure>
 
+<p>Enter the password you generate in Step 3.</p>
 <p>Enjoy! But remember the VM you connect is Ubuntu 18.04LTS. You will need to install some necessary packages to help you work. I suggest you write a <code>setup.sh</code> for this purpose as you will need to run it every time you open a new Google Colab notebook. </p>
 <p>If you close the Google Colab website, you will still be able to connect to the VM. But I don’t recommend to do so as your VM will be shut down after a while(about half an hour) if you have done that. I am not sure why but I have tested it for several times.</p>
 <h2 id="One-more-thing"><a href="#One-more-thing" class="headerlink" title="One more thing"></a>One more thing</h2><p>If you have connected to the google colab through ssh, you want to create a new jupyter notebook. When you enter <code>jupyter notebook</code> in your terminal, you will see errors. </p>
@@ -348,9 +349,7 @@
 <p>On your local terminal, enter</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># YYYY is a port number, pick one not being used</span></span><br><span class="line"><span class="comment"># &lt;port-number&gt; is the ngrok port number</span></span><br><span class="line">ssh -N -f -L localhost:YYY:localhost:XXXX root@0.tcp.ngrok.io -p &lt;port-number&gt;</span><br></pre></td></tr></table></figure>
 
-<p>You can open the jupyter notebook in your browser in </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:YYYY</span><br></pre></td></tr></table></figure>
-
+<p>You can open the jupyter notebook in your browser in address <code>localhost:YYYY</code></p>
 
     </div>
 
